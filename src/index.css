@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", serif;
+  
+  --color-brand-primary: #C19A6B; /* Italian Gold */
+  --color-brand-secondary: #2C3E50; /* Deep Midnight */
+  --color-brand-accent: #E67E22; /* Mediterranean Orange */
+  --color-brand-light: #FDFCF8; /* Warm Paper */
+  --color-brand-dark: #0F172A; /* Deepest Indigo */
+  --color-brand-card: #1E293B;
+
+  --animate-gradient-shift: gradient-shift 8s ease infinite;
+
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-brand-light text-brand-dark font-sans antialiased selection:bg-brand-primary/30;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-xl border border-black/5 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.1)] transition-all duration-700;
+  }
+  
+  .color-shift-text {
+    @apply animate-gradient-shift bg-[length:200%_auto] bg-clip-text text-transparent bg-gradient-to-r from-brand-primary via-brand-accent to-brand-primary;
+  }
+
+  .depth-shadow {
+    @apply shadow-[0_10px_30px_-10px_rgba(0,0,0,0.1)] hover:shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] transition-shadow duration-500;
+  }
+
+  .blend-invert {
+    @apply mix-blend-difference;
+  }
+}
+
+
